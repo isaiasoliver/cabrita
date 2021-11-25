@@ -1,0 +1,24 @@
+{
+  "name": "cabrita",
+  "version": "1.0.0",
+  "description": "api for test",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "migrate": "npx prisma migrate dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isaias Santana Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.4.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "prisma": "^3.4.2"
+  }
+}

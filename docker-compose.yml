@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  lint:
+    build: .
+    image: isaiasoliver/api-postgres:develop
+    # env_file: .env
+    entrypoint: ./entrypoint-dev.sh
+  api:
+    extends:
+      service: lint
+    volumes:
+      - .:/app
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      PROJECT_SERVICE_TYPE: 'api'
+  db:
+    image: postgres:11
+    ports:
+      - '5945:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
